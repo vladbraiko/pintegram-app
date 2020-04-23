@@ -1,6 +1,7 @@
 import refs from "./js/refs";
 import imageService from "./js/image-service";
 import updateMurkup from "./js/update-murkup";
+import loadMoreButton from "./js/components/load-more-button";
 import "./styles.scss";
 
 refs.searchForm.addEventListener("submit", submitSearchQuery);
@@ -11,20 +12,22 @@ function submitSearchQuery(event) {
   const form = event.currentTarget;
   imageService.query = form.elements.search.value;
 
+  loadMoreButton.hide();
   imageService.resetPage();
-
   clearImagesContainer();
-  imageService.makeFetch().then(updateMurkup);
+  showResult();
   form.reset();
-  show();
 }
 
 function clearImagesContainer() {
   refs.imagesContainer.innerHTML = "";
 }
 
-const loadMoreButton = document.querySelector(".js-load-more-button");
+function showResult() {
+  // loadMoreButton.disable();
 
-function show() {
-  loadMoreButton.classList.remove("is-hidden");
+  imageService.makeFetch().then(updateMurkup);
+  // setTimeout(loadMoreButton.enable, 1000);
 }
+
+//сделать если приходит пустой массив
