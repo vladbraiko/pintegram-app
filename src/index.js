@@ -5,6 +5,7 @@ import loadMoreButton from "./js/components/load-more-button";
 import "./styles.scss";
 
 refs.searchForm.addEventListener("submit", submitSearchQuery);
+refs.loadMoreButton.addEventListener("click", showResult);
 
 function submitSearchQuery(event) {
   event.preventDefault();
@@ -24,10 +25,6 @@ function clearImagesContainer() {
 }
 
 function showResult() {
-  // loadMoreButton.disable();
-
   imageService.makeFetch().then(updateMurkup);
-  // setTimeout(loadMoreButton.enable, 1000);
+  setTimeout(loadMoreButton.scrollDown, 500);
 }
-
-//сделать если приходит пустой массив

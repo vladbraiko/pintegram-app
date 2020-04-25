@@ -16,4 +16,11 @@ export default {
   hide() {
     refs.loadMoreButton.classList.add("is-hidden");
   },
+  scrollDown() {
+    window.scrollBy({
+      top: document.documentElement.clientHeight,
+      left: 0,
+      behavior: "smooth",
+    });
+  },
 };
