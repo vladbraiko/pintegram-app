@@ -1,11 +1,16 @@
 import refs from "./js/refs";
 import imageService from "./js/image-service";
-import updateMurkup from "./js/update-murkup";
 import loadMoreButton from "./js/components/load-more-button";
+import { updateMurkup, clearImagesContainer } from "./js/update-murkup";
+
+import * as basicLightbox from "basiclightbox";
+import "../node_modules/basiclightbox/src/styles/main.scss";
+
 import "./styles.scss";
 
 refs.searchForm.addEventListener("submit", submitSearchQuery);
-refs.loadMoreButton.addEventListener("click", showResult);
+refs.loadMoreButton.addEventListener("click", showImages);
+refs.imagesContainer.addEventListener("click", openImageInModal);
 
 function submitSearchQuery(event) {
   event.preventDefault();
@@ -16,15 +21,24 @@ function submitSearchQuery(event) {
   loadMoreButton.hide();
   imageService.resetPage();
   clearImagesContainer();
-  showResult();
+  showImages();
   form.reset();
 }
 
-function clearImagesContainer() {
-  refs.imagesContainer.innerHTML = "";
+function showImages() {
+  imageService.makeFetch().then(updateMurkup);
+
+  if (event.type === "click") {
+    setTimeout(loadMoreButton.scrollDown, 500);
+  }
 }
 
-function showResult() {
-  imageService.makeFetch().then(updateMurkup);
-  setTimeout(loadMoreButton.scrollDown, 500);
+function openImageInModal(event) {
+  if (event.target.nodeName === "IMG") {
+    const instance = basicLightbox.create(
+      `<img src="${event.target.src}" alt="">`
+    );
+    instance.show();
+  }
+  return;
 }

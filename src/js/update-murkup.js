@@ -18,4 +18,8 @@ function updateMurkup(imgData) {
   setTimeout(loadMoreButton.enable, 1000);
 }
 
-export default updateMurkup;
+function clearImagesContainer() {
+  refs.imagesContainer.innerHTML = "";
+}
+
+export { updateMurkup, clearImagesContainer };
