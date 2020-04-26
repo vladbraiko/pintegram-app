@@ -35,9 +35,7 @@ function showImages() {
 
 function openImageInModal(event) {
   if (event.target.nodeName === "IMG") {
-    const instance = basicLightbox.create(
-      `<img src="${event.target.src}" alt="">`
-    );
+    const instance = basicLightbox.create(`<img src="${event.target.src}">`);
     instance.show();
   }
   return;
