@@ -15,15 +15,11 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&display=swap"
-      rel="stylesheet"
-    />
   </head>
 
   <body>
-    <div class="container">
-      <header class="header">
+    <header class="header">
+      <div class="container search">
         <form class="input-group mb-3 js-search-form">
           <input
             name="search"
@@ -40,18 +36,27 @@
           </div>
         </form>
         <p class="logo">Pintegr<i class="red-letter">a</i>m</p>
-      </header>
+      </div>
+    </header>
+    <div class="container">
       <section class="result-container js-result-container">
-        <h1 class="main-theme">whatever you want</h1>
+        <h1 class="main-theme">Find your inspiration.</h1>
       </section>
     </div>
+    <button
+      type="button"
+      class="btn-outline-danger up-to-start-button is-hidden js-up-button"
+    >
+      ^
+    </button>
     <button
       type="button"
       class="btn btn-outline-danger is-hidden js-load-more-button load-more-button"
     ></button>
     <footer class="footer">
-      <div class="container">
-        Noncommercial application. Made for learning purpose.
+      <div class="container string">
+        <i class="material-icons red-letter">label</i> Noncommercial
+        application. Made for learning purpose.
       </div>
     </footer>
   </body>
