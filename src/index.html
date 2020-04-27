@@ -15,6 +15,10 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -30,21 +34,25 @@
             aria-describedby="button-addon2"
           />
           <div class="input-group-append">
-            <button
-              class="btn btn-outline-secondary"
-              type="submit"
-              id="button-addon2"
-            >
-              Button
+            <button class="btn btn-danger" type="submit" id="button-addon2">
+              Search
             </button>
           </div>
         </form>
+        <p class="logo">Pintegr<i class="red-letter">a</i>m</p>
       </header>
-      <section class="js-result-container"></section>
-      <button
-        type="button"
-        class="btn btn-outline-danger is-hidden js-load-more-button"
-      ></button>
+      <section class="result-container js-result-container">
+        <h1 class="main-theme">whatever you want</h1>
+      </section>
     </div>
+    <button
+      type="button"
+      class="btn btn-outline-danger is-hidden js-load-more-button load-more-button"
+    ></button>
+    <footer class="footer">
+      <div class="container">
+        Noncommercial application. Made for learning purpose.
+      </div>
+    </footer>
   </body>
 </html>
